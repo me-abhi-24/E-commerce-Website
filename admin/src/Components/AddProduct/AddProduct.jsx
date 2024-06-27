@@ -20,7 +20,7 @@ const AddProduct = () => {
 
   }
   const changeHandler = (e) => {
-    setProductDetails({ ...productDetails, [e.target.name]: <e className="target value"></e> })
+    setProductDetails({ ...productDetails, [e.target.name]: e.target.value })
   }
 
   const Add_Product = async () => {
