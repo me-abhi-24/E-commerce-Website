@@ -3,6 +3,7 @@ import './ListProduct.css'
 import cross_icon from "../../assets/cross_icon.png"
 
 const ListProduct = () => {
+  
   const [allproducts, setAllProducts]=useState([]);
 
   const fetchInfo=async()=>{
@@ -13,7 +14,7 @@ const ListProduct = () => {
     fetchInfo();
   },[])
 
-  const remove_product=async()=>{
+  const remove_product=async(id)=>{
     await fetch('http://localhost:4000/removeproduct',{
       method:'POST',
       headers:{
@@ -22,7 +23,7 @@ const ListProduct = () => {
       },
       body:JSON.stringify({id:id})
     })
-    await fetchInfo()
+    await fetchInfo();
   }
 
   return (
