@@ -256,6 +256,22 @@ app.post('/getcart', fetchUser, async(req, res)=>{
     res.json(userData.cartData);
 })
 
+// Assuming this is inside an Express route handler
+app.get('/getCart', async (req, res) => {
+    try {
+        const userData = await getUserData(req.userId); // Replace with actual function to get user data
+
+        if (!userData) {
+            return res.status(404).json({ error: 'User data not found' });
+        }
+
+        res.json(userData.cartData);
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: 'Internal server error' });
+    }
+});
+
 app.listen(port, (error)=>{
     if (!error) {
         console.log("Server Running on Port " +port);
